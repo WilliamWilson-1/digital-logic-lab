@@ -1,0 +1,13 @@
+{
+  "name": "digital-logic-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "数字逻辑与处理器系统交互式实验站",
+  "scripts": {
+    "dev": "python3 -m http.server 4174 --bind 127.0.0.1",
+    "test": "node scripts/test-engine.cjs && node scripts/test-ui.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}
