@@ -5,8 +5,9 @@
   "description": "数字逻辑与处理器系统交互式实验站",
   "scripts": {
     "dev": "python3 -m http.server 4174 --bind 127.0.0.1",
-    "test": "node scripts/test-engine.cjs && node scripts/test-ui.cjs && node scripts/test-navigation.cjs && node scripts/test-segments.cjs && node scripts/test-circuit-layout.cjs",
-    "test:ui": "node scripts/test-ui.cjs && node scripts/test-navigation.cjs && node scripts/test-segments.cjs && node scripts/test-circuit-layout.cjs"
+    "test": "node scripts/test-engine.cjs && npm run test:midterm && npm run test:ui",
+    "test:midterm": "node scripts/test-midterm.cjs",
+    "test:ui": "node scripts/test-ui.cjs && node scripts/test-navigation.cjs && node scripts/test-segments.cjs && node scripts/test-circuit-layout.cjs && node scripts/test-midterm-ui.cjs"
   },
   "devDependencies": {
     "jsdom": "^29.1.1"
