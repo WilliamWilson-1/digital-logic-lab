@@ -63,3 +63,11 @@ GitHub Pages 从 main 分支根目录发布，相对资源路径支持项目 URL
 约定：ADC 可切换 2ᴺ 分区和 2ᴺ−1 端点口径及取整方式；5421 按指南给定码表；冒险检测保留输入的两级结构，仅判断单输入变化的静态冒险。74x138 低有效输出，4→16 用两片分组选通；74x163 同步清零优先于装载与计数，RCO=ENT·Q3·Q2·Q1·Q0；74x194 异步清零，Q0…Q3 从左到右。自启动“所有输入”采用全称吸引域，固定输入结果不自动推广。Verilog 页只预演所列固定模板，不是任意 HDL 编译器；下载 TB 使用具名 DUT、激励、观察和结束，未实现自动评分。
 
 `npm run test:midterm` 核验指南关键数值、位序/控制优先级、冒险边与补项、真值表、非法输入、序列冲突及全部未用状态。`npm run test:ui` 也覆盖专项交互、函数送入五步设计、指南路由和页码边界。原 PDF 与预览均随 main 分支发布到 GitHub Pages。
+
+## Verilog 上手指导（2026-10-29）
+
+`#verilog/mindset` 面向有数字逻辑及少量 C++ / Python 基础、没有 HDL 经验的学习者。12 章从并发与电路映射、首次仿真、信号/位宽/四态、组合逻辑、模块实例，推进到时钟/复位、非阻塞赋值、模 6 计数、Moore 101 检测、Testbench、常见错误和练习。位于“时序与处理器”栏目，并与备考总览及 HDL 专项互相链接。
+
+章节深链、前后章、目录、学习进度、代码复制和 ZIP / Markdown 下载均可独立使用。进度保存在当前浏览器；页面只展示教程，不运行任意 Verilog。真实例程与自检 TB 在 `assets/verilog-start/examples/`，下载包自带 `run_examples.py`，使用 `iverilog -g2001` 与 `vvp`。六例在 Icarus Verilog 13.0 验证通过：多数表决 8 组、MUX 64 组、加法器 512 组，以及寄存器旧状态采样、计数器使能/回卷/异步复位、101 重叠检测。
+
+教程源文在 `tutorial/verilog-guide.source.md`，占位标记嵌入经过验证的 `.v` 文件。安装构建时依赖 `markdown` 后，运行 `python3 scripts/build-verilog-guide.py` 重建 `verilog-data.js`、完整 Markdown 和可复现 ZIP。线上运行无此依赖。修改代码后需先重跑真实仿真再构建；`node scripts/test-verilog-guide.cjs` 检查 12 章路由、历史、完成标记、代码复制、滚动区域与下载文件，并已加入 `npm run test:ui`。

@@ -7,7 +7,7 @@
     "dev": "python3 -m http.server 4174 --bind 127.0.0.1",
     "test": "node scripts/test-engine.cjs && npm run test:midterm && npm run test:ui",
     "test:midterm": "node scripts/test-midterm.cjs",
-    "test:ui": "node scripts/test-ui.cjs && node scripts/test-navigation.cjs && node scripts/test-segments.cjs && node scripts/test-circuit-layout.cjs && node scripts/test-midterm-ui.cjs"
+    "test:ui": "node scripts/test-ui.cjs && node scripts/test-navigation.cjs && node scripts/test-segments.cjs && node scripts/test-circuit-layout.cjs && node scripts/test-midterm-ui.cjs && node scripts/test-verilog-guide.cjs"
   },
   "devDependencies": {
     "jsdom": "^29.1.1"

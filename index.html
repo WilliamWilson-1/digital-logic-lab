@@ -6,8 +6,8 @@
 <title>数字逻辑与处理器系统 · 交互实验站</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23176c47'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='monospace' font-size='20' fill='white'%3E01%3C/text%3E%3C/svg%3E">
 <script src="appearance.js?v=2"></script>
-<link rel="stylesheet" href="tokens.css?v=2"><link rel="stylesheet" href="styles.css?v=4"><link rel="stylesheet" href="effects.css?v=2">
-<script defer src="engine.js?v=3"></script><script defer src="knowledge.js"></script><script defer src="segments.js?v=2"></script><script defer src="materials.js?v=2"></script><script defer src="guide-text.js"></script><script defer src="midterm-engine.js"></script><script defer src="midterm.js"></script><script defer src="app.js?v=4"></script>
+<link rel="stylesheet" href="tokens.css?v=2"><link rel="stylesheet" href="styles.css?v=5"><link rel="stylesheet" href="effects.css?v=2">
+<script defer src="engine.js?v=3"></script><script defer src="knowledge.js"></script><script defer src="segments.js?v=2"></script><script defer src="materials.js?v=2"></script><script defer src="guide-text.js"></script><script defer src="midterm-engine.js"></script><script defer src="midterm.js?v=2"></script><script defer src="verilog-data.js?v=1"></script><script defer src="verilog-guide.js?v=1"></script><script defer src="app.js?v=5"></script>
 </head>
 <body>
 <div class="ambient-light" aria-hidden="true"></div><div class="pointer-layer" aria-hidden="true"><div class="cursor-aura"></div></div>
@@ -25,13 +25,13 @@
 <p class="nav-group">组合逻辑</p>
 <a href="#lab" data-page="lab"><span>01</span>五步设计实验</a><a href="#builder" data-page="builder"><span>02</span>逻辑电路搭建</a><a href="#devices" data-page="devices"><span>03</span>常见逻辑器件</a>
 <p class="nav-group">时序与处理器</p>
-<a href="#sequential" data-page="sequential"><span>04</span>时序逻辑实验</a><a href="#processor" data-page="processor"><span>05</span>处理器实验</a>
+<a href="#sequential" data-page="sequential"><span>04</span>时序逻辑实验</a><a href="#processor" data-page="processor"><span>05</span>处理器实验</a><a href="#verilog" data-page="verilog"><span>11</span>Verilog 上手</a>
 <p class="nav-group">期中备考</p><a href="#midterm" data-page="midterm"><span>08</span>备考总览</a><a href="#exam" data-page="exam"><span>09</span>专项实验</a><a href="#guide" data-page="guide"><span>10</span>在线指南</a><p class="nav-group">复习与检验</p>
 <a href="#knowledge" data-page="knowledge"><span>06</span>知识总结</a><a href="#quiz" data-page="quiz"><span>07</span>随堂自测</a>
 </nav><div class="sidebar-note"><strong>从逻辑到处理器</strong><p>需求 → 真值表 → 卡诺图<br>表达式 → 电路 → 验证</p><div class="legend"><i class="led on"></i>高电平 1 <i class="led"></i>低电平 0</div><small>组合实验自动保存<br>理想逻辑 · 冒险专项另有延迟演示</small></div>
 <a class="original" href="https://williamwilson-1.github.io/electromagnetism-formula-review/#all" target="_blank" rel="noopener">↗ 电磁学公式复习站</a></aside>
 <main id="main" tabindex="-1">
-<div class="mobile-navigation glass-surface"><label for="page-select">课程目录</label><select id="page-select"><optgroup label="组合逻辑"><option value="lab">五步设计实验</option><option value="builder">逻辑电路搭建</option><option value="devices">常见逻辑器件</option></optgroup><optgroup label="时序与处理器"><option value="sequential">时序逻辑实验</option><option value="processor">处理器实验</option></optgroup><optgroup label="期中备考"><option value="midterm">备考总览</option><option value="exam">专项实验</option><option value="guide">在线指南</option></optgroup><optgroup label="复习与检验"><option value="knowledge">知识总结</option><option value="quiz">随堂自测</option></optgroup></select></div>
+<div class="mobile-navigation glass-surface"><label for="page-select">课程目录</label><select id="page-select"><optgroup label="组合逻辑"><option value="lab">五步设计实验</option><option value="builder">逻辑电路搭建</option><option value="devices">常见逻辑器件</option></optgroup><optgroup label="时序与处理器"><option value="sequential">时序逻辑实验</option><option value="processor">处理器实验</option><option value="verilog">Verilog 上手</option></optgroup><optgroup label="期中备考"><option value="midterm">备考总览</option><option value="exam">专项实验</option><option value="guide">在线指南</option></optgroup><optgroup label="复习与检验"><option value="knowledge">知识总结</option><option value="quiz">随堂自测</option></optgroup></select></div>
 <div class="page-heading"><div><span class="eyebrow">LEARN IT. BUILD IT. TEST IT.</span><h1 id="page-title">组合逻辑设计实验</h1><p id="page-description">一个逻辑函数，五种表示。改变任何一个环节，观察整个设计如何联动。</p></div><div class="total"><strong id="hero-number">05</strong><span id="hero-unit">步设计流程</span></div></div>
 <div id="page-nav" class="mode-tabs glass-surface" role="tablist" aria-label="学习栏目"><span class="tab-highlight" aria-hidden="true"></span><button id="group-combinational" role="tab" data-group-nav="combinational" aria-selected="true" aria-controls="view">组合逻辑</button><button id="group-systems" role="tab" data-group-nav="systems" aria-selected="false" aria-controls="view" tabindex="-1">时序与处理器</button><button id="group-midterm" role="tab" data-group-nav="midterm" aria-selected="false" aria-controls="view" tabindex="-1">期中备考</button><button id="group-review" role="tab" data-group-nav="review" aria-selected="false" aria-controls="view" tabindex="-1">知识与自测</button></div>
 <nav id="local-nav" class="local-nav" aria-label="当前栏目页面"></nav>
